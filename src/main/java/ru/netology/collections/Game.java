@@ -1,27 +1,27 @@
 package ru.netology.collections;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Game {
 
-    private List<Player> players;
+    private HashMap<String, Player> players;
 
     public Game() {
-        this.players = new ArrayList<>();
+        this.players = new HashMap();
     }
 
     public void register(Player player) {
-        players.add(player);
+        players.put(player.getName(), player);
     }
 
     public Player findByName(String name) {
-        for (Player p : players) {
-            if (p.getName().equals(name)) {
-                return p;
-            }
+        Player player = players.get(name);
+        if (player == null) {
+            throw new NotRegisteredException("Игрок с именем \"" + name + "\" не найден");
         }
-        throw new NotRegisteredException("Игрок с именем \"" + name + "\" не найден");
+        return player;
     }
 
     public int round(String playerName1, String playerName2) {
