@@ -31,7 +31,7 @@ class GameTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    // должен возвращать 2, если сила игрока 1 меньше силы игрока 2
+    // должен возвращать 2, если сила игрока 2 больше силы игрока 1
     @Test
     void shouldReturn2afterRound() {
 
@@ -48,6 +48,7 @@ class GameTest {
         Assertions.assertEquals(expected, actual);
     }
 
+//    должен возвращать 1, если сила игрока 1 больше силы игрока 2
     @Test
     void shouldReturn1afterRound() {
         game.register(player1);
@@ -63,6 +64,7 @@ class GameTest {
         Assertions.assertEquals(expected, actual);
     }
 
+//    должен возвращать 0 если сила обоих огроков равна
     @Test
     void shouldReturnZeroafterRound() {
 
@@ -76,6 +78,7 @@ class GameTest {
         Assertions.assertEquals(expected, actual);
     }
 
+//    должен выкидывать NotRegisteredException при попытке найти имя незарегистрированного игрока
     @Test
     void shouldThrowNotRegisteredException() {
 
